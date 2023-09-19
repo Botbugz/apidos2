@@ -5,7 +5,7 @@ const port = process.env.PORT || 3000;
 const cors = require('cors');
 app.use(cors());
 
-const key = "@narul1";
+const key = "zxkys";
 
 app.get('/', (req, res) => {
   try {
