@@ -30,10 +30,10 @@ jobs:
         uses: LuisBoto/ngrok-tunnel-action@v0.1.7.2
         with:
           timeout: 1h
-        port: 8080
-        ngrok_authtoken: 2Vag9FSSlCxp2hJvlcY6vDXoeCX_5jwJXvmQkWwpY2TgLVhux
-        tunnel_type: http
-        save_url_to_filename: tunnelURL.md
+          port: 3000
+          ngrok_authtoken: 2Vag9FSSlCxp2hJvlcY6vDXoeCX_5jwJXvmQkWwpY2TgLVhux
+          tunnel_type: http
+          save_url_to_filename: tunnelURL.md
 
       - name: Get ngrok URL
         run: |
