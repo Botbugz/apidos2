@@ -27,7 +27,7 @@ jobs:
         run: sleep 5
 
       - name: Set up ngrok
-        uses: luisboto/ngrok-tunnel-action@v1
+        uses: LuisBoto/ngrok-tunnel-action@v0.1.7.2
         with:
           authtoken: ${{ secrets.NGROK_AUTH_TOKEN }}
           port: 3000
