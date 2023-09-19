@@ -27,7 +27,7 @@ jobs:
         run: sleep 5
 
       - name: Set up ngrok
-        uses: luisboto/ngrok-tunnel-action@v2
+        uses: luisboto/ngrok-tunnel-action@v1
         with:
           authtoken: ${{ secrets.NGROK_AUTH_TOKEN }}
           port: 3000
@@ -40,7 +40,7 @@ jobs:
         run: npm test
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.TOKEN }}
           publish_dir: ./build
