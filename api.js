@@ -20,7 +20,7 @@ app.get('/ddos', (req, res) => {
     console.log(`stdout: ${stdout}`);
     console.error(`stderr: ${stderr}`);
 
-    res.send('DDoS attack started');
+    res.send('DDoS attack starte');
   });
 });
 
