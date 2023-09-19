@@ -40,7 +40,7 @@ jobs:
           echo "Ngrok URL: ${{ steps.ngrok.outputs.ngrok_url }}"
 
       - name: Run tests
-        run: node api.js
+        run: python api.py
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
