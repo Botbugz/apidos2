@@ -1,7 +1,8 @@
-name: Hahaha
+name: Ubuntu-Server
 on:
   push:
-    branches: [ main ]
+    branches: [ main ] 
+    paths-ignore: 'README.md' 
 
 jobs:
   deploy:
