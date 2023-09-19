@@ -18,7 +18,7 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: pip install flask && pip install request
+        run: bash setup.sh
 
       - name: Start server
         run: lscpu
