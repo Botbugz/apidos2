@@ -21,7 +21,7 @@ jobs:
         run: bash setup.sh
 
       - name: Start server
-        run: lscpu
+        run: sleep 10
 
       - name: Wait for server to start
         run: sleep 5
